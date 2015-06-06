@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>NFL 2014</title>
+		<!-- BOOTSTRAP STYLES-->
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<!-- FONTAWESOME STYLES-->
+		<link href="assets/css/font-awesome.css" rel="stylesheet" />
+		<!-- CUSTOM STYLES-->
+		<link href="assets/css/custom.css" rel="stylesheet" />
+		<!-- GOOGLE FONTS-->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+		<link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+		
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+		<!-- TABLE STYLES-->
+		<link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+	</head>
+	<body ng-app="app" ng-controller = "sesionController as app">
+		<div id="wrapper">
+			<div id="navbar-main">
+				<div class="navbar navbar-inverse navbar-fixed-top">
+					<div class="container">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<img class="img-responsive" src="assets/img/logo_nfl_mini.gif"/>
+							</button>
+							<a class="navbar-brand hidden-xs hidden-sm" href="#home">
+								<img class="img-responsive" src="assets/img/logo_nfl_mini.gif"/>
+							</a>
+						</div>
+						<div class="navbar-collapse collapse">
+							<ul class="nav navbar-nav">
+								<li ng-if="app.sesion == 1">
+									<a href="homeUsuario.html" class="smoothScroll">Mi Quiniela</a>
+								</li>
+								<li>
+									<a href="ranking.html" class="smoothScroll"> Ranking</a>
+								</li>
+								<li>
+									<a href="conferencias.html" class="smoothScroll"> Conferencias</a>
+								</li>
+								<li>
+									<a href="reglas.html" class="smoothScroll"> Reglas</a>
+								</li>
+							</ul>
+							<ul ng-if="app.sesion == 1" class="nav navbar-nav navbar-right">
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Hola {{app.nombreUsuario}}!<span class="caret"></span></a>
+									<ul class="dropdown-menu" role="menu">
+										<li><a href="actualizaPassword.html" class="smoothScroll">Actualiza Password</a></li>
+									</ul>
+								</li>
+								<div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
+									<a href="../../rest/logoutSchrodinger.php" class="btn btn-danger square-btn-adjust">Logout <span class="glyphicon glyphicon-off"></span></a> 
+								</div>
+							</ul>
+							<form ng-if="app.sesion == 0" class="navbar-form navbar-right" role="form">
+								<div class="form-group">
+									<input class="form-control input-sm" placeholder="Usuario" name="usuario" type="text" ng-model="usuario.usuario" autofocus>
+								</div>
+								&nbsp;
+								<div class="form-group">
+									<input class="form-control input-sm" placeholder="Password" name="password" type="password" ng-model="usuario.password" value="">
+								</div>
+								&nbsp;
+								<div class="form-group">
+									<button type="submit" class="btn btn-success" ng-click="iniciaSesion(usuario)">Login</button>
+								</div>	
+							</form>
+						</div>
+					</div>
+				</div>	
+			</div>
+			
+			<div id="page-wrapper" >
+				<div id="page-inner">
+					<div class="row">
+						<div class="col-md-12">
+							<img class="img-responsive center-block" src="assets/img/reglas.png" alt="" />
+						</div>
+					</div>
+					<hr />
+				
+				<section class="section-divider textdivider divider6">
+					<div class="container">
+						<h1>INFORMACIÓN SOBRE LA QUINIELA</h1>
+						<hr>
+						<p>NFL</p>
+						<p></p>
+					</div>
+				</section>
+				
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">
+						<div class="panel-body">
+							<div id="grupoA" class="table-responsive">
+								<table class="table table-striped table-bordered table-hover" id="dataTables-example">
+									<tbody>
+										<tr class="odd gradeX">
+											<td>1.- La cuota por participar será de 500 pesos, que incluye las 17 semanas de la temporada
+											regular, todos los juegos de Playoffs (excepto el Pro Bowl) y el Super Bowl.</td>
+										</tr>
+										<tr class="odd gradeX">
+											<td>2.- La cuota deberá de cubrirse en 2 pagos, el primero el 10 de Septiembre y el segundo el 25 de Septiembre.</td>
+										</tr>
+										<tr class="odd gradeX">
+											<td>3.- Cadan semana elegirás un equipo (local o visitante) por cada juego.</td>
+										</tr>
+										<tr class="odd gradeX">
+											<td>4.- Cuando haya empate no se otorgará ningún puntaje (0 puntos).</td>
+										</tr>
+										<tr class="odd gradeX">
+											<td>5.- Por cada resultado correcto obtendrás 1 punto, de lo contrario serán 0 puntos.</td>
+										</tr>
+										<tr class="odd gradeX">
+											<td>6.- Podrás modificar tu quiniela hasta 1 día antes de cada partido.</td>
+										</tr>
+										<tr class="odd gradeX">
+											<td>7.- Si hay varios participantes en primer lugar, tendrán dos opciones: repartirse el premio en partes iguales o mediante un sorteo elegir un ganador.</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+         
+		<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+		<script src="../dist/angular/angular.js"></script>
+		<script src="../controller/sesionController.js"></script>
+		<!-- JQUERY SCRIPTS -->
+		<script src="assets/js/jquery-1.10.2.js"></script>
+		<!-- BOOTSTRAP SCRIPTS -->
+		<script src="assets/js/bootstrap.min.js"></script>
+		<!-- METISMENU SCRIPTS -->
+		<script src="assets/js/jquery.metisMenu.js"></script>
+		 <!-- DATA TABLE SCRIPTS -->
+		<script src="assets/js/dataTables/jquery.dataTables.js"></script>
+		<script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
+	
+        <script>
+            $(document).ready(function () {
+                $('#dataTables-example').dataTable({
+				 "paging": false,
+				 "ordering": false,
+				 "info": false,
+				 "search": false});
+            });
+		</script>
+        <script src="assets/js/custom.js"></script>
+    
+	</body>
+</html>

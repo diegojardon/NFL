@@ -1,0 +1,149 @@
+/*Para el espacio entre el navbar y lo que sigue en el html, para cualquier tamaño de pantalla*/
+body { 
+	padding-top: 70px;
+	background-color: rgb(1, 18, 38);
+	/*font-family: "Lato";
+    font-weight: 300;
+    font-size: 16px;
+    color: #555;*/
+	
+	background: #011226 url('../img/backgroundAzul.jpg') no-repeat top center;
+	/*background: #011226 url('../img/backgroundAzul.jpg') no-repeat top center;
+	background-position-x: 50%;
+	background-position-y: 0%;
+	background-size: initial;
+	background-repeat-x: no-repeat;
+	background-repeat-y: no-repeat;
+	background-attachment: initial;
+	background-origin: initial;
+	background-clip: initial;
+	/*background-color: rgb(1, 18, 38);*/
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Paragraph & Typographic */
+p {
+    line-height: 28px;
+    margin-bottom: 25px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+hr {
+    position: relative;
+    border: none;
+}
+
+hr:before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 25%;
+    width: 50%;
+    height: 2px;
+    background: #ccc;
+}
+
+.section-divider {
+    z-index: 999;
+    width: 100%;
+    display: table;
+    max-height: 450px;
+    /*border-bottom: 2px solid #E6EAED;*/
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-top: 30px;
+    padding-bottom: 70px;
+    margin-top: 45px;
+
+
+    background-position: center center;
+
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    background-attachment: relative;
+    
+    text-align: center;
+}
+
+.textdivider h1 {
+	padding-top: 70px;
+	color: white;
+	font-size: 40px;
+}
+
+.textdivider p {
+	color: white;
+	font-size: 25px;
+}
+
+.divider1 {
+	background-image: url('../img/divider1.jpg');
+}
+
+.divider2 {
+	background-image: url('../img/fondo_actualizaPassword.jpg');
+}
+
+.divider3 {
+	background-image: url('../img/fondo_miquiniela.jpg');
+}
+
+.divider4 {
+	background-image: url('../img/fondo_conferencias.jpg');
+}
+
+.divider5{
+	background-image: url('../img/fondo_ranking2.jpg');
+}
+
+.divider6 {
+	background-image: url('../img/fondo_reglas.jpg');
+	/*-webkit-filter: contrast(50%);*/
+	/*-webkit-filter: grayscale(0%); */
+	/*-webkit-filter: sepia(0%);*/
+	/*-webkit-filter: brightness(0%);*/
+	/*-webkit-filter: blur(5px);*/
+}
+
+.container{
+	font-weight: bold;
+}
+
+.table{
+	background-color:white;
+}
+
+#navbar-main{
+	font-family: 'Shadows Into Light', cursive;
+	font-size: 17px;
+}
+
+.obscuro{
+	background-color: black;
+	-webkit-filter: opacity(80%);
+	width: 100%;
+	margin-top: -20px;
+}
+
+/*Para que el btn-group abarque toda la pantalla en resolución menor a 768px*/
+@media(max-width: 768px){
+	.btn,.btn-group{
+		width:100%;
+	}
+}
+

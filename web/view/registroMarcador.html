@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Registro Marcador</title>
+<link rel="stylesheet" type="text/css" href="css/estilos.css" media="screen" />
+<script src="../dist/angular/angular.js"></script>
+<script src="../controller/actualizaResultadoController.js"></script>
+
+</head>
+	<body ng-controller="actualizaResultadoCtrl">
+		<form name="registroMarcador" method="post" id="form1">
+			<br/><br/>
+			<div id="contenido">
+				<div id="header"></div>
+				<div class="label">Id Partido:</div>
+				<input  type="text" maxlength="25" class="campoinput" ng-model="partido.idPartido"/>
+				<br />
+				<div class="label">Marcador:</div>
+				<input  type="text" maxlength="20"  class="campoinput" ng-model="partido.marcadorPartido"/>
+				<br />
+				<div class="label">Resultado:</div>
+				<input type="password" maxlength="15" class="campoinput" ng-model="partido.resultadoPartido"/>
+				<br />
+				<div style="text-align:center;"><input type="button" name="btn1" value="Registrar" id="btn1" ng-click="actualizaResultado(partido)"/></div>
+			</div>
+		</form>
+	</body>
+</html>

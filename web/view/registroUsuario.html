@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Registro Usuario</title>
+<link rel="stylesheet" type="text/css" href="css/estilos.css" media="screen" />
+<script src="../dist/angular/angular.js"></script>
+<script src="../controller/registroController.js"></script>
+
+</head>
+	<body ng-controller="registroUsuarioController">
+		<form name="registroUsuario" method="post" id="form1">
+			<br/><br/>
+			<div id="contenido">
+				<div id="header"></div>
+				<div class="label">Nombre:</div>
+				<input  type="text" maxlength="25" class="campoinput" ng-model="usuario.nombre"/>
+				<br />
+				<div class="label">Usuario:</div>
+				<input  type="text" maxlength="20"  class="campoinput" ng-model="usuario.usuario"/>
+				<br />
+				<div class="label">Password</div>
+				<input type="password" maxlength="15" class="campoinput" ng-model="usuario.password"/>
+				<br />
+				<div style="text-align:center;"><input type="button" name="btn1" value="Registrar" id="btn1" ng-click="registraUsuario(usuario)"/></div>
+			</div>
+		</form>
+	</body>
+</html>

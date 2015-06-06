@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>NFL 2014</title>
+		
+		<!-- BOOTSTRAP STYLES-->
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<!-- FONTAWESOME STYLES-->
+		<link href="assets/css/font-awesome.css" rel="stylesheet" />
+	    <!-- CUSTOM-->
+		<link href="assets/css/custom.css" rel="stylesheet" />
+		<!-- GOOGLE FONTS-->
+		<link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+		
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+		<!-- TABLE STYLES-->
+		<link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+		
+	</head>
+	<body ng-app="app" ng-controller = "sesionController as app">
+		<div id="wrapper">
+			<div id="navbar-main">
+				<div class="navbar navbar-inverse navbar-fixed-top">
+					<div class="container">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<img class="img-responsive" src="assets/img/logo_nfl_mini.gif"/>
+							</button>
+							<a class="navbar-brand hidden-xs hidden-sm" href="#home">
+								<img class="img-responsive" src="assets/img/logo_nfl_mini.gif"/>
+							</a>
+						</div>
+						<div class="navbar-collapse collapse">
+							<ul class="nav navbar-nav">
+								<li ng-if="app.sesion == 1">
+									<a href="homeUsuario.html" class="smoothScroll">Mi Quiniela</a>
+								</li>
+								<li>
+									<a href="ranking.html" class="smoothScroll"> Ranking</a>
+								</li>
+								<li>
+									<a href="conferencias.html" class="smoothScroll"> Conferencias</a>
+								</li>
+								<li>
+									<a href="reglas.html" class="smoothScroll"> Reglas</a>
+								</li>
+							</ul>
+							<ul ng-if="app.sesion == 1" class="nav navbar-nav navbar-right">
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Hola {{app.nombreUsuario}}!<span class="caret"></span></a>
+									<ul class="dropdown-menu" role="menu">
+										<li><a href="actualizaPassword.html" class="smoothScroll">Actualiza Password</a></li>
+									</ul>
+								</li>
+								<div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
+									<a href="../../rest/logoutSchrodinger.php" class="btn btn-danger square-btn-adjust">Logout <span class="glyphicon glyphicon-off"></span></a> 
+								</div>
+							</ul>
+							<form ng-if="app.sesion == 0" class="navbar-form navbar-right" role="form">
+								<div class="form-group">
+									<input class="form-control input-sm" placeholder="Usuario" name="usuario" type="text" ng-model="usuario.usuario" autofocus>
+								</div>
+								&nbsp;
+								<div class="form-group">
+									<input class="form-control input-sm" placeholder="Password" name="password" type="password" ng-model="usuario.password" value="">
+								</div>
+								&nbsp;
+								<div class="form-group">
+									<button type="submit" class="btn btn-success" ng-click="iniciaSesion(usuario)">Login</button>
+								</div>	
+							</form>
+						</div>
+					</div>
+				</div>	
+			</div>
+		
+			<div id="page-inner">
+				<div class="row">
+					<div class="col-md-12">
+						<img class="img-responsive center-block" src="assets/img/conferencias.png" alt="" />
+					</div>
+				</div>
+				<hr/>
+				
+				<section class="section-divider textdivider divider4">
+					<div class="container">
+						<h1>EQUIPOS</h1>
+						<hr>
+						<p>Clic en el logo del equipo para visitar su página</p>
+						<p>NFL</p>
+					</div>
+				</section>
+				
+				<div class="row">
+					<div class="col-md-12">
+					<!-- Advanced Tables -->
+						<div class="panel-body">
+							<img class="img-responsive center-block" src="assets/img/AFC.png" alt="" />
+							<img class="img-responsive" src="assets/img/AFC_Norte.png" alt="" />
+							<div id="grupoA" class="table-responsive">
+								<table class="table table-bordered table-hover" id="dataTables-example">
+								<tbody>
+									<tr class="odd gradeX">
+										<td>
+											<a href="http://www.baltimoreravens.com/" target="_blank">
+												<img class="img-responsive center-block" src="assets/img/logo_ravens.png"/>
+											</a>
+										</td>
+										<td>
+											<a href="http://www.bengals.com/" target="_blank">
+												<img class="img-responsive center-block" src="assets/img/logo_bengals.png"/>
+											</a>	
+										</td>
+										<td>
+											<a href="http://www.clevelandbrowns.com/" target="_blank">
+												<img class="img-responsive center-block" src="assets/img/logo_browns.png"/>
+											</a>	
+										</td>
+										<td>
+											<a href="http://www.steelers.com/" target="_blank">
+												<img class="img-responsive center-block" src="assets/img/logo_steelers.png"/>
+											</a>	
+										</td>
+									</tr>	
+								</tbody>
+							</table>
+						</div>
+						<img class="img-responsive" src="assets/img/AFC_Este.png" alt="" />
+						<div id="grupoB" class="table-responsive">
+							<table class="table table-bordered table-hover" id="dataTables-example">
+								<tbody>
+									<td>
+										<a href="http://www.buffalobills.com/" target="_blank">
+											<img class="img-responsive center-block img-circle" src="assets/img/logo_bills.png"/>
+										</a>
+									</td>
+									<td>
+										<a href="http://www.miamidolphins.com/" target="_blank">
+											<img class="img-responsive center-block img-polaroid" src="assets/img/logo_dolphins.png"/>
+										</a>
+									</td>
+									<td>
+										<a href="http://www.patriots.com/" target="_blank">
+											<img class="img-responsive center-block img-rounded" src="assets/img/logo_patriots.png"/>
+										</a>
+									</td>
+									<td>
+										<a href="http://www.newyorkjets.com/" target="_blank">
+											<img class="img-responsive center-block" src="assets/img/logo_jets.png"/>
+										</a>	
+									</td>
+								</tbody>
+							</table>
+						</div>
+						<img class="img-responsive" src="assets/img/AFC_Sur.png" alt="" />
+						<div id="grupoC" class="table-responsive">
+							<table class="table table-bordered table-hover" id="dataTables-example">
+								<tbody>
+									<td>
+										<a href="http://www.houstontexans.com/" target="_blank">
+											<img class="img-responsive center-block" src="assets/img/logo_texans.png"/>
+										</a>	
+									</td>
+									<td>
+										<a href="http://www.colts.com/" target="_blank">
+											<img class="img-responsive center-block" src="assets/img/logo_colts.png"/>
+										</a>
+									</td>
+									<td>
+										<a href="http://www.jaguars.com/" target="_blank">
+											<img class="img-responsive center-block" src="assets/img/logo_jaguars.png"/>
+										</a>	
+									</td>
+									<td>
+										<a href="http://www.titansonline.com/" target="_blank">
+											<img class="img-responsive center-block" src="assets/img/logo_titans.png"/>
+										</a>
+									</td>
+								</tbody>		
+							</table>
+						</div>
+						<img class="img-responsive" src="assets/img/AFC_Oeste.png" alt="" />
+						<div id="grupoD" class="table-responsive">
+							<table class="table table-bordered table-hover" id="dataTables-example">
+								<tbody>
+									<td>
+										<a href="http://www.denverbroncos.com/" target="_blank">
+											<img class="img-responsive center-block" src="assets/img/logo_broncos.png"/>
+										</a>	
+									</td>
+									<td>
+										<a href="http://www.kcchiefs.com/" target="_blank">
+											<img class="img-responsive center-block" src="assets/img/logo_chiefs.png"/>
+										</a>
+									</td>
+									<td>
+										<a href="http://www.raiders.com/" target="_blank">
+											<img class="img-responsive center-block" src="assets/img/logo_raiders.png"/>
+										</a>	
+									</td>
+									<td>
+										<a href="http://www.chargers.com/" target="_blank">
+											<img class="img-responsive center-block" src="assets/img/logo_chargers.png"/>
+										</a>	
+									</td>
+								</tbody>		
+							</table>
+						</div>
+						
+						<img class="img-responsive center-block" src="assets/img/NFC.png" alt="" />
+						
+						<img class="img-responsive" src="assets/img/NFC_Norte.png" alt="" />
+						<div id="grupoE" class="table-responsive">
+							<table class="table table-bordered table-hover" id="dataTables-example">
+								<tbody>
+									<td>
+										<a href="http://www.chicagobears.com/" target="_blank">
+											<img class="img-responsive center-block" src="assets/img/logo_bears.png"/>
+										</a>	
+									</td>
+									<td>
+										<a href="http://www.detroitlions.com/" target="_blank">
+											<img class="img-responsive center-block" src="assets/img/logo_lions.png"/>
+										</a>	
+									</td>
+									<td>
+										<a href="http://www.packers.com/" target="_blank">
+											<img class="img-responsive center-block" src="assets/img/logo_packers.png"/>
+										</a>	
+									</td>
+									<td>
+										<a href="http://www.vikings.com/" target="_blank">
+											<img class="img-responsive center-block" src="assets/img/logo_vikings.png"/>
+										</a>	
+									</td>
+								</tbody>		
+							</table>
+						</div>
+						<img class="img-responsive" src="assets/img/NFC_Este.png" alt="" />
+						<div id="grupoF" class="table-responsive">
+							<table class="table table-bordered table-hover" id="dataTables-example">
+								<tbody>
+									<td>
+										<a href="http://www.dallascowboys.com/" target="_blank">
+											<img class="img-responsive center-block" src="assets/img/logo_cowboys.png"/>
+										</a>	
+									</td>
+									<td>
+										<a href="http://www.giants.com/" target="_blank">
+											<img class="img-responsive center-block" src="assets/img/logo_giants.png"/>
+										</a>	
+									</td>
+									<td>
+										<a href="http://www.philadelphiaeagles.com/" target="_blank">
+											<img class="img-responsive center-block" src="assets/img/logo_eagles.png"/>
+										</a>	
+									</td>
+									<td>
+										<a href="http://www.redskins.com/" target="_blank">
+											<img class="img-responsive center-block" src="assets/img/logo_redskins.png"/>
+										</a>	
+									</td>
+								</tbody>		
+							</table>
+						</div>
+						<img class="img-responsive" src="assets/img/NFC_Sur.png" alt="" />
+						<div id="grupoG" class="table-responsive">
+							<table class="table table-bordered table-hover" id="dataTables-example">
+								<tbody>
+									<td>
+										<a href="http://www.atlantafalcons.com/" target="_blank">
+											<img class="img-responsive center-block" src="assets/img/logo_falcons.png"/>
+										</a>	
+									</td>
+									<td>
+										<a href="http://www.panthers.com/" target="_blank">
+											<img class="img-responsive center-block" src="assets/img/logo_panthers.png"/>
+										</a>	
+									</td>
+									<td>
+										<a href="http://www.neworleanssaints.com/" target="_blank">
+											<img class="img-responsive center-block" src="assets/img/logo_saints.png"/>
+										</a>	
+									</td>
+									<td>
+										<a href="http://www.buccaneers.com/" target="_blank">
+											<img class="img-responsive center-block" src="assets/img/logo_buccaneers.png"/>
+										</a>	
+									</td>
+								</tbody>		
+							</table>
+						</div>
+						<img class="img-responsive" src="assets/img/NFC_Oeste.png" alt="" />
+						<div id="grupoH" class="table-responsive">
+							<table class="table table-bordered table-hover" id="dataTables-example">
+								<tbody>
+									<td>
+										<a href="http://www.azcardinals.com/" target="_blank">
+											<img class="img-responsive center-block" src="assets/img/logo_cardinals.png"/>
+										</a>	
+									</td>
+									<td>
+										<a href="http://www.stlouisrams.com/" target="_blank">
+											<img class="img-responsive center-block" src="assets/img/logo_rams.png"/>
+										</a>	
+									</td>
+									<td>
+										<a href="http://www.sf49ers.com/" target="_blank">
+											<img class="img-responsive center-block" src="assets/img/logo_49ers.png"/>
+										</a>	
+									</td>
+									<td>
+										<a href="http://www.seahawks.com/" target="_blank">
+											<img class="img-responsive center-block" src="assets/img/logo_seahawks.png"/>
+										</a>	
+									</td>
+								</tbody>		
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+        <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+		<script src="../dist/angular/angular.js"></script>
+		<script src="../controller/sesionController.js"></script>
+		<!-- JQUERY SCRIPTS -->
+		<script src="assets/js/jquery-1.10.2.js"></script>
+		<!-- BOOTSTRAP SCRIPTS -->
+		<script src="assets/js/bootstrap.min.js"></script>
+		<!-- METISMENU SCRIPTS -->
+		<script src="assets/js/jquery.metisMenu.js"></script>
+		<!-- DATA TABLE SCRIPTS -->
+		<script src="assets/js/dataTables/jquery.dataTables.js"></script>
+		<script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
+	
+		<script>
+            $(document).ready(function () {
+                $('#dataTables-example').dataTable({
+				 "paging": false,
+				 "ordering": false,
+				 "info": false,
+				 "search": false});
+            });
+		</script>
+         <!-- CUSTOM SCRIPTS -->
+		<script src="assets/js/custom.js"></script>
+		
+    </body>
+</html>
